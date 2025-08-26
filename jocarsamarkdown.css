@@ -77,4 +77,19 @@
 /* Modo WYSIWYG visible */
 .jocarsa-md-container.wysiwyg-mode .jocarsa-md-editor{ display:block; }
 .jocarsa-md-container.wysiwyg-mode .jocarsa-md-textarea-hidden{ display:none !important; }
-
+.jocarsa-md-toolbar button {
+  all: unset; /* reset inherited styles */
+  display: inline-block;
+  border: 1px solid #ddd !important;
+  background: #fff !important;
+  color: #000 !important;
+  padding: .35rem .5rem !important;
+  border-radius: .5rem !important;
+  cursor: pointer !important;
+  font-size: .9rem !important;
+  line-height: 1;
+  user-select: none;
+  text-align: center;
+}
+.jocarsa-md-toolbar button:hover { background:#f0f0f0 !important; }
+.jocarsa-md-toolbar button:active { transform: translateY(1px); }
