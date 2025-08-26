@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Demo — jocarsamarkdownjs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="jocarsamarkdown.css">
+</head>
+<body>
+  <h1>Demo: jocarsamarkdownjs</h1>
+  <p>
+    Este ejemplo convierte automáticamente los <code>&lt;textarea&gt;</code> en un editor
+    WYSIWYG de Markdown con barra de herramientas.
+  </p>
+
+  <form id="formularioDemo">
+    <label>
+      Contenido del post:
+      <textarea name="contenido" placeholder="Escribe aquí en Markdown…">
+# Hola mundo
+
+Este es un **ejemplo** de *jocarsamarkdownjs*.
+
+- Elemento uno
+- Elemento dos
+      </textarea>
+    </label>
+
+    <label>
+      Notas adicionales:
+      <textarea name="notas" placeholder="Otro textarea de prueba…">
+Un segundo textarea.
+
+> Cita de ejemplo
+      </textarea>
+    </label>
+
+    <br>
+    <button type="submit">Enviar</button>
+  </form>
+
+  <h2>Markdown enviado</h2>
+  <pre id="salida"></pre>
+
+  <script src="jocarsamarkdown.js"></script>
+  <script>
+    // Capturamos el envío del formulario para mostrar el Markdown
+    document.getElementById('formularioDemo').addEventListener('submit', function(e){
+      e.preventDefault();
+      const data = new FormData(this);
+      let resultado = '';
+      for (const [clave, valor] of data.entries()){
+        resultado += `--- ${clave} ---\n${valor}\n\n`;
+      }
+      document.getElementById('salida').textContent = resultado;
+    });
+  </script>
+</body>
+</html>
+
